@@ -41,7 +41,7 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 
 
 body {
-  background-image: url('/img/mp_logo_ong.png');
+  background-image: url('img/mp_logo_ong.png');
   background-size: 100px;
   background-repeat: no-repeat;
   background-position: 95% 95%;
@@ -85,7 +85,7 @@ body {
 .purple-slide body,
 .orange-slide body,
 .black-slide body {
-  background-image: url('/img/mp_logo_wt.png');
+  background-image: url('img/mp_logo_wt.png');
   background-color: $myplanet_black;
   .reveal {
     color: #fff;
@@ -103,7 +103,7 @@ body {
   }
 }
 .title-slide body { 
-  background-image: url('/img/title-bg.jpg'); 
+  background-image: url('img/title-bg.jpg'); 
   background-size: cover;
   background-position: center center;
   background-color: $myplanet_orange;
