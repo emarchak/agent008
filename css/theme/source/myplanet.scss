@@ -50,10 +50,11 @@ body {
       font-weight:bold;
       text-shadow: none;
       line-height: 1.25;
+      font-weight: 400; 
     }
-    h1 { font-size: 3.27em; line-height:1; }
-    h2 { font-size: 1.61em;	}
-    h3 { font-size: 1em;	}
+    h1 { font-size: 3.27em; line-height:1; font-weight: 700;}
+    h2 { font-size: 1.61em; }
+    h3 { font-size: 1em; font-weight: 700; }
     h4 { font-size: 1em; font-style: italic; }
     img {
       width: 40%;
