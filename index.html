@@ -71,11 +71,13 @@
         
         <section data-state="black-slide">
           <h2>Here we go!</h2>
+          <p>This presentation can be found at <a href="http://emarchak.github.io/atyourservice/">emarchak.github.io/atyourservice</a></p>
+          <p>This module can be found at <a href="https://github.com/emarchak/atyourservice/tree/module">github.com/emarchak/atyourservice</a>
         </section>
         
         <section>
           
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/cbc7d853e7da0203292df2965ce9324c3ab82dec">Create A Module using Console</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/cbc7d853e7da0203292df2965ce9324c3ab82dec">Create A Module using Console</a></h3>
           
           <pre><code>$ drupal generate:module
           
@@ -84,7 +86,7 @@ Enter the new module name:
           </code></pre>
         </section>
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/76c803c15a657f07c4266d0121bf16d51e606b88">Generate content types using console</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/76c803c15a657f07c4266d0121bf16d51e606b88">Generate content types using console</a></h3>
           <pre><code data-trim data-noescape>$ drupal generate:entity:bundle
 
 Enter the module name [admin_toolbar]:
@@ -99,7 +101,7 @@ $ drupal module:install fastpaced_videos
         </section>
 
         <section>
-         <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/dd6b08c7915b9e46870f158df53652e17a32e3c1">Configure nodes and export config</a></h3>
+         <h3><a href="https://github.com/emarchak/atyourservice/commit/dd6b08c7915b9e46870f158df53652e17a32e3c1">Configure nodes and export config</a></h3>
           <p>Log into the site and configure the content type as needed, before you export it.</p>
 
 <pre><code data-trim data-noescape>$ drupal config:export:content:type
@@ -113,7 +115,7 @@ $ drupal create:nodes
         </section>
                   
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/814bee479cc3a42ff0dffc233eafc8bf5dd496c7">Add cron task to import videos</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/814bee479cc3a42ff0dffc233eafc8bf5dd496c7">Add cron task to import videos</a></h3>
           <pre><code data-trim data-noescape class="php">/**
  * Implements hook_cron().
  */
@@ -127,7 +129,7 @@ function fastpaced_videos_cron() {
         </section>
 
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/3c88151c09550a0e6515d38f8cdb8052f4e8c4f0">Generate import service for videos</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/3c88151c09550a0e6515d38f8cdb8052f4e8c4f0">Generate import service for videos</a></h3>
           <pre><code data-trim data-noescape>$ drupal generate:service
 Enter the service name [fastpaced_videos.default]:
 &gt; fastpaced_videos.import
@@ -149,7 +151,7 @@ Enter your service [ ]:
         </section>
 
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/e08b2dbc1f990de26b7fc10db6639f3f0ecf73ea">Add logging to import service</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/e08b2dbc1f990de26b7fc10db6639f3f0ecf73ea">Add logging to import service</a></h3>
           <pre><code data-trim data-noescape>logger.channel.fastpaced_videos:
   parent: logger.channel_base
   arguments: ['fastpaced_videos']
@@ -163,7 +165,7 @@ $this->logger
 
 
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/575c667d4dd1cf1d135cf8ca2fa676cf5ac213d4">Create service function stubs</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/575c667d4dd1cf1d135cf8ca2fa676cf5ac213d4">Create service function stubs</a></h3>
           <pre><code data-trim data-noescape class="php">// Get our search parameters.
   
   // Query YouTube based on our search results.
@@ -188,7 +190,7 @@ $this->logger
   }</code></pre>
         </section>
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/451dfdf55cc13c1eefd769fb88d4f0cf7b7fbbd6">Add configuration for our module</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/451dfdf55cc13c1eefd769fb88d4f0cf7b7fbbd6">Add configuration for our module</a></h3>
           <pre><code data-trim data-noescape>$ drupal generate:form:config
   
   Enter the Form Class name [DefaultForm]:
@@ -219,7 +221,7 @@ $this->logger
           </section>
 
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/451dfdf55cc13c1eefd769fb88d4f0cf7b7fbbd6">Export the configuration settings.</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/451dfdf55cc13c1eefd769fb88d4f0cf7b7fbbd6">Export the configuration settings.</a></h3>
           <pre><code data-trim data-noescape>$ drupal config:export:single --directory=modules/custom/fastpaced_videos/config/install
   
 Configuration type [Simple configuration]:
@@ -232,7 +234,7 @@ Configuration name [automated_cron.settings]:
 
         
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/6497e6ea2801124e474eda1a4449a219676332cd">Add configuration object to service to get search terms</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/6497e6ea2801124e474eda1a4449a219676332cd">Add configuration object to service to get search terms</a></h3>
           <pre><code data-trim data-noescape class="php">import() {
   // Get our search parameters.
   $config = $this->config_factory->getEditable('fastpaced_videos.importsettings');
@@ -243,7 +245,7 @@ Configuration name [automated_cron.settings]:
 
                 
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/dab310b2febaaa093878dd18ad8f2c175c8992eb">Construct URL for search</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/dab310b2febaaa093878dd18ad8f2c175c8992eb">Construct URL for search</a></h3>
           <pre><code data-trim data-noescape class="php">protected function getSearchURL($search_terms = '') {
 $search_url = URL::fromUri(
   'https://www.googleapis.com/youtube/v3/search',
@@ -264,7 +266,7 @@ $search_url = URL::fromUri(
         </section>
                         
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/87dff23029affdec6388b6b71ec36b5fc4817ae2">Take a look at the results</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/87dff23029affdec6388b6b71ec36b5fc4817ae2">Take a look at the results</a></h3>
           <pre><code data-trim data-noescape class="php">// Check the result of our search request.
 try {
 
@@ -281,7 +283,7 @@ try {
 
 
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/be0cc5420d183d4caca2ced5839b6b81852c87c2">Generate the video URL method</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/be0cc5420d183d4caca2ced5839b6b81852c87c2">Generate the video URL method</a></h3>
           <pre><code data-trim data-noescape class="php">// Create the video URL.
 $video_url = $this->getVideoURl($results[$i]);</code></pre>
           <pre><code data-trim data-noescape class="php">/**
@@ -303,7 +305,7 @@ protected function getVideoURL($item = []) {
 
                                 
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/d4e80984f3201943d568140c7b244dddd8dd120c">Check to see if we have the video URL imported</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/d4e80984f3201943d568140c7b244dddd8dd120c">Check to see if we have the video URL imported</a></h3>
           <pre><code data-trim data-noescape class="php">// Check to see if we have the video URL imported
 $is_new = $this->uniqueField('field_video', $video_url);</code></pre>
           <pre><code data-trim data-noescape class="php">/**
@@ -321,7 +323,7 @@ protected function uniqueField($field = '', $value = '') {
         </section>
 
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/726b6351599b86ddcb0b5c7ec058a49b87c9bcc7"><em>Finally</em> import the node</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/726b6351599b86ddcb0b5c7ec058a49b87c9bcc7"><em>Finally</em> import the node</a></h3>
           <pre><code data-trim data-noescape class="php">if ($is_new) {
   $item = $results[$i]['snippet'];
   $was_saved = $this->createNode($item['title'], [
@@ -358,7 +360,7 @@ protected function createNode($title = '', $fields = []) {
 
 
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/8eecb768b7f16f677888a0ed7d2fecb74b6946a6">Create custom front page</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/8eecb768b7f16f677888a0ed7d2fecb74b6946a6">Create custom front page</a></h3>
           <pre><code data-trim data-noescape>$ drupal generate:controller
 
 Enter the Controller class name [DefaultController]:
@@ -374,7 +376,7 @@ Enter your service [ ]:
         </section>
 
         <section>
-          <h3><a href="https://github.com/emarchak/fastpaced_videos/commit/57f0e6d10ddd19bdef8f98c088d3056ad7d3a92f">Create Custom Theme Function</a></h3>
+          <h3><a href="https://github.com/emarchak/atyourservice/commit/57f0e6d10ddd19bdef8f98c088d3056ad7d3a92f">Create Custom Theme Function</a></h3>
           <p><small>Add our theme function to <code>fastpaced_videos.module</code>.<p>This looks for <code>fastpaced-gallery.html.twig</code>.</small></p>
           <pre><code data-trim data-noescape class="php">function fastpaced_videos_theme() {
   return [
