@@ -156,7 +156,16 @@ Enter your service [ ]:
   parent: logger.channel_base
   arguments: ['fastpaced_videos']
     </code></pre>
-    <pre><code data-trim data-noescape class="php">// Log how many videos we’ve imported.
+          <pre><code data-trim data-noescape>use Psr\Log\LoggerInterface;
+
+/**
+ * Psr\Log\LoggerInterface definition.
+ *
+ * @var Psr\Log\LoggerInterface;
+ */
+
+protected $logger;</code></pre>
+          <pre><code data-trim data-noescape class="php">// Log how many videos we’ve imported.
 $this->logger
   ->info('Imported @count fast paced videos', ['@count' => $imported]);
         </code></pre>
