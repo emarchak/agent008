@@ -41,8 +41,8 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section data-state="title-slide">
-					<h1>At Your Service</h1>
-					<h2>Module Development using Services in Drupal 8</h2>
+					<h1>HTML5 Slide Deck</h1>
+					<h2>Justin, that grin is suspicious</h2>
 					<p>
 						<a href="http://twitter.com/emarchak">@emarchak</a> / <a href="http://twitter.com/myplanetHQ">@myplanetHQ</a>
 					</p>
@@ -52,14 +52,10 @@
           <a href="http://myplanet.com"><img src="img/mp_logo_wt.png" class="nude" alt="Myplanet"/></a>
           <p><a href="http://twitter.com/myplanetHQ">@myplanetHQ</a></p>
         </section>
-
-				<section data-state="pink-slide">
-          <a href="http://myplanet.com"><img src="img/erin.png" class="nude" alt="Erin Marchak"/></a>
-          <p><a href="http://twitter.com/emarchak">@emarchak</a></p>
-				</section>
-				
+        
+        
   		  <section>
-          <h2>Overview</h2>
+          <h2 class="left">List Slide</h2>
           <ol>
             <li>Quickly scaffold code using Drupal Console</li>
             <li class="fragment">Managing configuration in your module</li>
@@ -68,370 +64,52 @@
             <li class="fragment">Create custom theme templates for Front End Developers</li>
           </ol>
         </section>
-        
-        <section data-state="black-slide">
-          <h2>Here we go!</h2>
-          <p>This presentation can be found at <a href="http://emarchak.github.io/atyourservice/">emarchak.github.io/atyourservice</a></p>
-          <p>This module can be found at <a href="https://github.com/emarchak/atyourservice/tree/module">github.com/emarchak/atyourservice</a>
-        </section>
-        
-        <section>
-          
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/cbc7d853e7da0203292df2965ce9324c3ab82dec">Create A Module using Console</a></h3>
-          
-          <pre><code>$ drupal generate:module
-          
-Enter the new module name:
-&gt; Fastpaced videos 
-          </code></pre>
-        </section>
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/76c803c15a657f07c4266d0121bf16d51e606b88">Generate content types using console</a></h3>
-          <pre><code data-trim data-noescape>$ drupal generate:entity:bundle
-
-Enter the module name [admin_toolbar]:
-&gt; fastpaced_videos
-
-Enter the machine name of your new content type [default]:
-&gt; video
-
-$ drupal module:install fastpaced_videos
-</code></pre>
-
-        </section>
-
-        <section>
-         <h3><a href="https://github.com/emarchak/atyourservice/commit/dd6b08c7915b9e46870f158df53652e17a32e3c1">Configure nodes and export config</a></h3>
-          <p>Log into the site and configure the content type as needed, before you export it.</p>
-
-<pre><code data-trim data-noescape>$ drupal config:export:content:type
-&gt; video
-
-Export content type in module as an optional configuration (yes/no) [yes]:
-&gt; no
-
-$ drupal create:nodes
-</code></pre>
-        </section>
-                  
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/814bee479cc3a42ff0dffc233eafc8bf5dd496c7">Add cron task to import videos</a></h3>
-          <pre><code data-trim data-noescape class="php">/**
- * Implements hook_cron().
- */
-function fastpaced_videos_cron() {
-
-  \Drupal::service('fastpaced_videos.import')->import();
-
-}
-          </code></pre>
-          <p><small>Some parts of Drupal 8 are still procedural like 7, <br/><code>hook_theme</code> and <code>hook_cron</code>, for example.</small></p>
-        </section>
-
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/3c88151c09550a0e6515d38f8cdb8052f4e8c4f0">Generate import service for videos</a></h3>
-          <pre><code data-trim data-noescape>$ drupal generate:service
-Enter the service name [fastpaced_videos.default]:
-&gt; fastpaced_videos.import
-
-Enter the Class name [DefaultService]:
-&gt; ImportService
-
-Do you want to load services from the container (yes/no) [no]:
-&gt; yes
-
-Enter your service [ ]:
-&gt; http_client
-&gt; entity.query
-&gt; entity_type.manager
-&gt; config.factory
-&gt; serialization.json
-</code></pre>
-        <p><small>Drupal 8 has <a href="https://api.drupal.org/api/drupal/services">lots of new services in core</a> you can explore.</small></p>
-        </section>
-
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/e08b2dbc1f990de26b7fc10db6639f3f0ecf73ea">Add logging to import service</a></h3>
-          <pre><code data-trim data-noescape>logger.channel.fastpaced_videos:
-  parent: logger.channel_base
-  arguments: ['fastpaced_videos']
-    </code></pre>
-          <pre><code data-trim data-noescape>use Psr\Log\LoggerInterface;
-
-/**
- * Psr\Log\LoggerInterface definition.
- *
- * @var Psr\Log\LoggerInterface;
- */
-
-protected $logger;</code></pre>
-          <pre><code data-trim data-noescape class="php">// Log how many videos we’ve imported.
-$this->logger
-  ->info('Imported @count fast paced videos', ['@count' => $imported]);
-        </code></pre>
-        <p><small>There's <a href="https://drupalize.me/blog/201510/how-log-messages-drupal-8">a new way to handle logging</a> in Drupal 8.</small></p>
-        </section>
-
-
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/575c667d4dd1cf1d135cf8ca2fa676cf5ac213d4">Create service function stubs</a></h3>
-          <pre><code data-trim data-noescape class="php">// Get our search parameters.
-  
-  // Query YouTube based on our search results.
-  
-  // Check the result of our search request.
-  try {
-  
-    // If we have something, list the results.
-    $results = [];
-  
-    // Loop through the results.
-    for ($i = 0; isset($results[$i]); $i++) {
-  
-      // Increment our imported count on successful import.
-      $imported++;
-  
-    }
-  
-  } catch (RequestException $e) {
-  
-    watchdog_exception('fastpaced_videos', $e);
-  }</code></pre>
-        </section>
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/451dfdf55cc13c1eefd769fb88d4f0cf7b7fbbd6">Add configuration for our module</a></h3>
-          <pre><code data-trim data-noescape>$ drupal generate:form:config
-  
-  Enter the Form Class name [DefaultForm]:
-  &gt; ImportSettingsForm    
-  
-  Do you want to generate a form structure? (yes/no) [yes]:
-  &gt; y
-  
-  Type:          textfield
-  Input label:   Search Terms
-  Description:   Feed to import from
-  Default value: macaframa
-  
-  Update routing file (yes/no) [yes]:
-  &gt; yes   
-  
-  
-  Generate a menu link (yes/no) [yes]:
-  &gt; yes
-  
-  A title for the menu link [ImportSettingsForm]:
-  &gt; Fast Paced Import Settings
-  
-  Menu parent [system.admin_config_system]:
-  &gt; system.admin_config_services
-  </code></pre>
-  
-          </section>
-
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/451dfdf55cc13c1eefd769fb88d4f0cf7b7fbbd6">Export the configuration settings.</a></h3>
-          <pre><code data-trim data-noescape>$ drupal config:export:single --directory=modules/custom/fastpaced_videos/config/install
-  
-Configuration type [Simple configuration]:
-&gt; system.simple
-
-Configuration name [automated_cron.settings]:
-&gt; fastpaced_videos.importsettings
-</code></pre>
-        </section>
 
         
         <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/6497e6ea2801124e474eda1a4449a219676332cd">Add configuration object to service to get search terms</a></h3>
-          <pre><code data-trim data-noescape class="php">import() {
-  // Get our search parameters.
-  $config = $this->config_factory->getEditable('fastpaced_videos.importsettings');
-  $search_terms = $config->get('search_terms');
-  $this->logger
-    ->info('Searching for @terms', ['@terms' => $search_terms]);</code></pre>
+          <h2>Text Slide</h2>
+          <p>Mattis asperiores, rutrum? <a href="#">Aliquip luctus eros, molestias doloremque eos</a>, odit asperiores dictum sint massa impedit, consequuntur nesciunt vel, unde laboriosam dolor. Leo magni pretium etiam nec! Non quod ea est.</p>
         </section>
-
-                
+        
+        <section data-state="nologo-slide">
+          <h2>No logo slides?</h2>
+				</section> 
+  				
         <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/dab310b2febaaa093878dd18ad8f2c175c8992eb">Construct URL for search</a></h3>
-          <pre><code data-trim data-noescape class="php">protected function getSearchURL($search_terms = '') {
-$search_url = URL::fromUri(
-  'https://www.googleapis.com/youtube/v3/search',
-  [ 'query' => [
-    'q'           => urlencode($search_terms),
-    'part'        => 'snippet',
-    'type'        => 'video',
-    'safeSearch'  => 'strict',
-    'maxResults'  => '50',
-    'key'         => $_SERVER['GGL_API_KEY']
-  ]])->toUriString();
-  return $search_url;
-}</code></pre>
-          <pre><code data-trim data-noescape class="php">import() {
-  // Query YouTube based on our search results.
-  $search_url = $this->getSearchURL($search_terms);
-  $response = $this->http_client->request('GET', $search_url);</code></pre>
-        </section>
-                        
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/87dff23029affdec6388b6b71ec36b5fc4817ae2">Take a look at the results</a></h3>
-          <pre><code data-trim data-noescape class="php">// Check the result of our search request.
-try {
-
-  if ($response->getReasonPhrase() != 'OK') {
-    throw new Exception(t(
-      'Received status @status',
-      array('$status' => $response->getReasonPhrase())
-    ));
-  }
-    // If we have something, list the results.
-  $data = $this->serialization_json->decode($response->getBody());
-  $results = $data['items']; </code></pre>
-        </section>
-
-
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/be0cc5420d183d4caca2ced5839b6b81852c87c2">Generate the video URL method</a></h3>
-          <pre><code data-trim data-noescape class="php">// Create the video URL.
-$video_url = $this->getVideoURl($results[$i]);</code></pre>
-          <pre><code data-trim data-noescape class="php">/**
- * Helper method to return the video URL
- */
-
-protected function getVideoURL($item = []) {
-  $video_url = '';
-
-  $video_url = Url::fromUri(
-    'https://www.youtube.com/watch',
-    [ 'query' => [
-      'v' => $item['id']['videoId']
-    ]])->toUriString();
-
-  return $video_url;
-}</code></pre>
-        </section>
-
-                                
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/d4e80984f3201943d568140c7b244dddd8dd120c">Check to see if we have the video URL imported</a></h3>
-          <pre><code data-trim data-noescape class="php">// Check to see if we have the video URL imported
-$is_new = $this->uniqueField('field_video', $video_url);</code></pre>
-          <pre><code data-trim data-noescape class="php">/**
- * Check if file is unique among nodes.
- */
-protected function uniqueField($field = '', $value = '') {
-  $result = $this->entity_query->get('node')
-    ->condition($field, $value, '=')
-    ->execute();
-
-  $unique = empty($result);
-
-  return $unique;
-}</code></pre>
-        </section>
-
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/726b6351599b86ddcb0b5c7ec058a49b87c9bcc7"><em>Finally</em> import the node</a></h3>
-          <pre><code data-trim data-noescape class="php">if ($is_new) {
-  $item = $results[$i]['snippet'];
-  $was_saved = $this->createNode($item['title'], [
-    'body'        => $item['description'],
-    'field_video' => $video_url,
-  ]);
-  
-  // Increment our imported count on successful import.
-  if ($was_saved) {
-    $imported++;
-  }</code></pre>
-
-          <pre><code data-trim data-noescape class="php">/**
- * Create node and populate fields for video content types.
- */
-protected function createNode($title = '', $fields = []) {
-  $node_storage = $this->entity_type_manager->getStorage('node');
-
-  // Create the node.
-  $node = $node_storage->create([
-    'type'  => 'video',
-    'title' => $title,
-    'uid'   => 1,
-  ]);
-  // Populate the fields
-  foreach ($fields as $field => $value) {
-    $node->set($field, $value);
-  }
-
-  // Save the node
-  return $node->save();
-}</code></pre>
-        </section>
-
-
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/8eecb768b7f16f677888a0ed7d2fecb74b6946a6">Create custom front page</a></h3>
-          <pre><code data-trim data-noescape>$ drupal generate:controller
-
-Enter the Controller class name [DefaultController]:
-&gt; FrontPageController
-Enter the Controller method title (leave empty and press enter when done) [ ]:
-&gt; Front
-Enter the action method name [hello]:
-&gt; load
-Enter the route path [fastpaced_videos/hello/{name}]:
-&gt; front
-Enter your service [ ]:
-&gt; entity_type.manager</code></pre>
-        </section>
-
-        <section>
-          <h3><a href="https://github.com/emarchak/atyourservice/commit/57f0e6d10ddd19bdef8f98c088d3056ad7d3a92f">Create Custom Theme Function</a></h3>
-          <p><small>Add our theme function to <code>fastpaced_videos.module</code>.<p>This looks for <code>fastpaced-gallery.html.twig</code>.</small></p>
-          <pre><code data-trim data-noescape class="php">function fastpaced_videos_theme() {
-  return [
-    'fastpaced_gallery' => [
-      'variables' => [
-        'videos' => NULL
-      ]
-    ]
-  ];
-}</code></pre>
-         <p><small>Some parts of Drupal 8 are still procedural like 7, <br/><code>hook_theme</code> and <code>hook_cron</code>, for example.</small></p>
-
-        </section>
-                                        
-        <section>
-          <p><small>Add the variables to <code>src/Controller/FrontPageController.php</code>.</small></p>
-          <pre><code data-trim data-noescape class="php">load() {
-  // Get our libraries to make this easier.
-  $storage = $this->entity_type_manager->getStorage('node');
-  $query = $storage->getQuery();
-  $view = $this->entity_type_manager->getViewBuilder('node');
-  
-  // Fetch the 10 most recent nodes
-  $nids = $query
-    ->condition('status', NODE_PUBLISHED)
-    ->condition('type', 'video')
-    ->sort('created', 'DESC')
-    ->pager(10)
-    ->execute();
-  $nodes = $storage->loadMultiple($nids);
-  foreach($nodes as &$node) {
-    $node = $view->view($node, 'teaser');
-  }
-  
-  // Return the nodes to the template.
-  return [
-    '#theme' => 'fastpaced_gallery',
-    '#videos' => $nodes
-  ];</code></pre>
+  				<section>
+            <h2>Coloured slides?</h2>
+  				</section>          
+  				
+  				<section data-state="pink-slide">
+            <h2>A pink slide</h2>
+            <p>yep. <a href="#">yep.</a></p>
+  				</section>
+  				
+  				<section data-state="teal-slide">
+            <h2>A teal slide</h2>
+            <p>yep. <a href="#">yep.</a></p>
+  				</section>
+  				
+  				<section data-state="purple-slide">
+            <h2>A purple slide</h2>
+            <p>yep. <a href="#">yep.</a></p>
+  				</section>
+  				
+  				<section data-state="orange-slide">
+            <h2>An orange slide</h2>
+            <p>yep. <a href="#">yep.</a></p>
+  				</section>
+  				
+  				<section data-state="black-slide">
+            <h2>A black slide</h2>
+            <p>yep. <a href="#">yep.</a></p>
+  				</section>
+  				
         </section>
 
         <section data-state="black-slide">
-          <h2>Thank you!</h2>
-          <p>
-            <a href="http://twitter.com/emarchak">@emarchak</a> / <a href="http://twitter.com/myplanetHQ">@myplanetHQ</a>
-          </p>
+          <h2>Thank you</h2>
+          <p><a href="http://twitter.com/myplanetHQ">@myplanetHQ</a></p>
 				</section>
 				
 			</div>
@@ -446,7 +124,7 @@ Enter your service [ ]:
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: false,
+				controls: true,
 				progress: true,
 				history: true,
 				center: true,

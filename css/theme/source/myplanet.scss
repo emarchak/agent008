@@ -14,40 +14,36 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic|Droid+Sans+Mono);
 
 // Brand colors --------------------------------
-$myplanet_pink:   #ea3d67;
-$myplanet_teal:   #58c0a2;
-$myplanet_purple: #5F5CB1;
-$myplanet_black:  #222222;
-$myplanet_orange: #f05a28;
+$mp_pink:   #ea3d67;
+$mp_teal:   #58c0a2;
+$mp_purple: #5F5CB1;
+$mp_black:  #333;
+$mp_orange: #f05a28;
 
 // Override theme settings (see ../template/settings.scss)
 $mainFont: 'Droid Serif', serif;
-$mainColor: #333;
-$headingFont: 'Droid Serif', serif;
-$headingColor: #000;
+$mainColor: $mp_black;
+$headingFont: 'Montserrat', serif;
+$headingColor: $mp_black;
 $headingTextShadow: none;
 $headingTextTransform: none;
 $backgroundColor: #fff;
-$linkColor: $myplanet_orange;
-$linkColorHover: lighten( $linkColor, 20% );
+$linkColor: $mp_black;
+$linkColorHover: darken( $linkColor, 20% );
 $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
-
-
 
 // Theme template ------------------------------
 @import "../template/theme";
-$presentation_dir: "/atyourservice";
+
 // ---------------------------------------------
-
-
-
 body {
-  background-image: url($presentation_dir + '/img/mp_logo_ong.png');
+  background-image: url('source/img/mp_logo_og.png');
   background-size: 100px;
   background-repeat: no-repeat;
   background-position: 95% 95%;
   .reveal {
     h1, h2, h3, h4, h5, h6 {
+      font-family: $headingFont;
       font-weight:bold;
       text-shadow: none;
       line-height: 1.25;
@@ -57,6 +53,13 @@ body {
     h2 { font-size: 1.61em; }
     h3 { font-size: 1em; font-weight: 700; }
     h4 { font-size: 1em; font-style: italic; }
+    a,
+    a:not(.image) {
+      text-decoration: underline;
+      &:hover, &:active {
+        text-decoration: none;
+      }
+    }
     img {
       width: 40%;
     }
@@ -66,66 +69,83 @@ body {
     code {
       font-family: 'Droid Sans Mono', monospace;
     }
-    a,
-    a:not(.image) {
-      color: $myplanet_orange;
-      text-decoration: underline;
-      &:focus,
-      &:hover {
-        color: lighten( $myplanet_orange, 20% );
-      }
-    }
   }
 }
 
 
-// slide themes
+// slide color themes
 .title-slide body,
 .pink-slide body,
 .teal-slide body,
 .purple-slide body,
 .orange-slide body,
 .black-slide body {
-  background-image: url($presentation_dir + '/img/mp_logo_wt.png');
-  background-color: $myplanet_black;
+  background-image: url('source/img/mp_logo_wt.png');
+  background-color: $mp_black;
   .reveal {
-    color: #fff;
+    color: $backgroundColor;
     h1, h2, h3, h4, h5, h6 {
-      color: #fff;
+      color: $backgroundColor;
     }
     a,
     a:not(.image) {
-      color: $myplanet_black;
-      &:focus,
-      &:hover {
-        color: lighten( $myplanet_black, 20% );
+      color: $backgroundColor;
+      &:focus, &:hover {
+        color: darken( $backgroundColor, 20% );
       }
     }
   }
 }
+.nologo-slide body { background-image: none !important;    }
+.pink-slide body   { background-color: $mp_pink;     }
+.teal-slide body   { background-color: $mp_teal;     }
+.purple-slide body { background-color: $mp_purple;   }
+.orange-slide body { background-color: $mp_orange;   }
+
+.black-slide body {
+  .reveal .controls .navigate-left,
+  .reveal .controls .navigate-left.enabled {
+  	border-right-color: $backgroundColor;
+  }
+  
+  .reveal .controls .navigate-right,
+  .reveal .controls .navigate-right.enabled {
+    border-left-color: $backgroundColor;
+  }
+  
+  .reveal .controls .navigate-up,
+  .reveal .controls .navigate-up.enabled {
+  	border-bottom-color: $backgroundColor;
+  }
+  
+  .reveal .controls .navigate-down,
+  .reveal .controls .navigate-down.enabled {
+  	border-top-color: $backgroundColor;
+  }
+  
+  .reveal .controls .navigate-left.enabled:hover {
+  	border-right-color: darken( $backgroundColor, 20% );
+  }
+  
+  .reveal .controls .navigate-right.enabled:hover {
+  	border-left-color: darken( $backgroundColor, 20% );
+  }
+  
+  .reveal .controls .navigate-up.enabled:hover {
+  	border-bottom-color: darken( $backgroundColor, 20% );
+  }
+  
+  .reveal .controls .navigate-down.enabled:hover {
+  	border-top-color: darken( $backgroundColor, 20% );
+  } 
+}
+
 .title-slide body { 
-  background-image: url($presentation_dir + '/img/title-bg.jpg'); 
+  background-image: url('source/img/title-bg.jpg'); 
   background-size: cover;
   background-position: center center;
-  background-color: $myplanet_orange;
+  background-color: $mp_orange;
 }
-.no-logo-slide body  { background-image: none !important;    }
-.pink-slide body     { background-color: $myplanet_pink;     }
-.teal-slide body     { background-color: $myplanet_teal;     }
-.purple-slide body   { background-color: $myplanet_purple;   }
-.orange-slide body   { background-color: $myplanet_orange;   }
-.black-slide body .reveal {
-  a,
-  a:not(.image) {
-    color: $linkColor;
-    &:focus,
-    &:hover {
-      $linkColorHover: lighten( $linkColor, 20% );
-    }
-  }
-}
-
-
 
 // helper classes
 .reveal {
@@ -141,5 +161,12 @@ body {
   .right {
     float: right;
   }
-
+}
+// Reveal overrides
+.reveal {
+  // flip controls to the left.
+  .controls {
+    right: auto;
+    left: 0;
+  } 
 }

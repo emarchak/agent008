@@ -35,8 +35,8 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #000;
-  font-family: "Droid Serif", serif;
+  color: #333;
+  font-family: "Montserrat", serif;
   font-weight: normal;
   line-height: 1.2;
   letter-spacing: normal;
@@ -199,20 +199,20 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #f05a28;
+  color: #333;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   transition: color .15s ease; }
 
 .reveal a:hover {
-  color: #f7a387;
+  color: black;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #be3a0d; }
+  background: #0d0d0d; }
 
 /*********************************************
  * IMAGES
@@ -234,7 +234,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #f05a28;
+  border-color: #333;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
@@ -242,31 +242,31 @@ body {
  *********************************************/
 .reveal .controls .navigate-left,
 .reveal .controls .navigate-left.enabled {
-  border-right-color: #f05a28; }
+  border-right-color: #333; }
 
 .reveal .controls .navigate-right,
 .reveal .controls .navigate-right.enabled {
-  border-left-color: #f05a28; }
+  border-left-color: #333; }
 
 .reveal .controls .navigate-up,
 .reveal .controls .navigate-up.enabled {
-  border-bottom-color: #f05a28; }
+  border-bottom-color: #333; }
 
 .reveal .controls .navigate-down,
 .reveal .controls .navigate-down.enabled {
-  border-top-color: #f05a28; }
+  border-top-color: #333; }
 
 .reveal .controls .navigate-left.enabled:hover {
-  border-right-color: #f7a387; }
+  border-right-color: black; }
 
 .reveal .controls .navigate-right.enabled:hover {
-  border-left-color: #f7a387; }
+  border-left-color: black; }
 
 .reveal .controls .navigate-up.enabled:hover {
-  border-bottom-color: #f7a387; }
+  border-bottom-color: black; }
 
 .reveal .controls .navigate-down.enabled:hover {
-  border-top-color: #f7a387; }
+  border-top-color: black; }
 
 /*********************************************
  * PROGRESS BAR
@@ -275,17 +275,18 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #f05a28;
+  background: #333;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985); }
 
 body {
-  background-image: url("/atyourservice/img/mp_logo_ong.png");
+  background-image: url("source/img/mp_logo_og.png");
   background-size: 100px;
   background-repeat: no-repeat;
   background-position: 95% 95%; }
   body .reveal h1, body .reveal h2, body .reveal h3, body .reveal h4, body .reveal h5, body .reveal h6 {
+    font-family: "Montserrat", serif;
     font-weight: bold;
     text-shadow: none;
     line-height: 1.25;
@@ -302,20 +303,19 @@ body {
   body .reveal h4 {
     font-size: 1em;
     font-style: italic; }
+  body .reveal a,
+  body .reveal a:not(.image) {
+    text-decoration: underline; }
+    body .reveal a:hover, body .reveal a:active,
+    body .reveal a:not(.image):hover,
+    body .reveal a:not(.image):active {
+      text-decoration: none; }
   body .reveal img {
     width: 40%; }
   body .reveal .lite {
     opacity: 0.25; }
   body .reveal code {
     font-family: 'Droid Sans Mono', monospace; }
-  body .reveal a,
-  body .reveal a:not(.image) {
-    color: #f05a28;
-    text-decoration: underline; }
-    body .reveal a:focus, body .reveal a:hover,
-    body .reveal a:not(.image):focus,
-    body .reveal a:not(.image):hover {
-      color: #f7a387; }
 
 .title-slide body,
 .pink-slide body,
@@ -323,8 +323,8 @@ body {
 .purple-slide body,
 .orange-slide body,
 .black-slide body {
-  background-image: url("/atyourservice/img/mp_logo_wt.png");
-  background-color: #222222; }
+  background-image: url("source/img/mp_logo_wt.png");
+  background-color: #333; }
   .title-slide body .reveal,
   .pink-slide body .reveal,
   .teal-slide body .reveal,
@@ -376,7 +376,7 @@ body {
     .orange-slide body .reveal a:not(.image),
     .black-slide body .reveal a,
     .black-slide body .reveal a:not(.image) {
-      color: #222222; }
+      color: #fff; }
       .title-slide body .reveal a:focus, .title-slide body .reveal a:hover,
       .title-slide body .reveal a:not(.image):focus,
       .title-slide body .reveal a:not(.image):hover,
@@ -400,15 +400,9 @@ body {
       .black-slide body .reveal a:hover,
       .black-slide body .reveal a:not(.image):focus,
       .black-slide body .reveal a:not(.image):hover {
-        color: #555555; }
+        color: #cccccc; }
 
-.title-slide body {
-  background-image: url("/atyourservice/img/title-bg.jpg");
-  background-size: cover;
-  background-position: center center;
-  background-color: #f05a28; }
-
-.no-logo-slide body {
+.nologo-slide body {
   background-image: none !important; }
 
 .pink-slide body {
@@ -423,9 +417,39 @@ body {
 .orange-slide body {
   background-color: #f05a28; }
 
-.black-slide body .reveal a,
-.black-slide body .reveal a:not(.image) {
-  color: #f05a28; }
+.black-slide body .reveal .controls .navigate-left,
+.black-slide body .reveal .controls .navigate-left.enabled {
+  border-right-color: #fff; }
+
+.black-slide body .reveal .controls .navigate-right,
+.black-slide body .reveal .controls .navigate-right.enabled {
+  border-left-color: #fff; }
+
+.black-slide body .reveal .controls .navigate-up,
+.black-slide body .reveal .controls .navigate-up.enabled {
+  border-bottom-color: #fff; }
+
+.black-slide body .reveal .controls .navigate-down,
+.black-slide body .reveal .controls .navigate-down.enabled {
+  border-top-color: #fff; }
+
+.black-slide body .reveal .controls .navigate-left.enabled:hover {
+  border-right-color: #cccccc; }
+
+.black-slide body .reveal .controls .navigate-right.enabled:hover {
+  border-left-color: #cccccc; }
+
+.black-slide body .reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color: #cccccc; }
+
+.black-slide body .reveal .controls .navigate-down.enabled:hover {
+  border-top-color: #cccccc; }
+
+.title-slide body {
+  background-image: url("source/img/title-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-color: #f05a28; }
 
 .reveal img,
 .reveal .nude {
@@ -438,3 +462,7 @@ body {
 
 .reveal .right {
   float: right; }
+
+.reveal .controls {
+  right: auto;
+  left: 0; }
