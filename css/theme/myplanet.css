@@ -1,7 +1,7 @@
 /**
  * Myplanet theme for reveal.js presentations
  */
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic|Droid+Sans+Mono);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Montserrat:400,700|Droid+Sans+Mono);
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -42,6 +42,8 @@ body {
   letter-spacing: normal;
   text-transform: none;
   text-shadow: none;
+  text-align: left;
+  width: 100%;
   word-wrap: break-word; }
 
 .reveal h1 {
@@ -57,7 +59,12 @@ body {
   font-size: 1em; }
 
 .reveal h1 {
+  text-align: center;
   text-shadow: none; }
+
+.reveal .title-slide h1,
+.reveal .title-slide h2 {
+  text-align: center; }
 
 /*********************************************
  * OTHER
@@ -85,7 +92,9 @@ body {
 .reveal ul {
   display: inline-block;
   text-align: left;
-  margin: 0 0 0 1em; }
+  width: 80%;
+  margin: 0 0 0 1em;
+  padding-left: 0; }
 
 .reveal ol {
   list-style-type: decimal; }
@@ -287,7 +296,6 @@ body {
   background-position: 95% 95%; }
   body .reveal h1, body .reveal h2, body .reveal h3, body .reveal h4, body .reveal h5, body .reveal h6 {
     font-family: "Montserrat", serif;
-    font-weight: bold;
     text-shadow: none;
     line-height: 1.25;
     font-weight: 400; }
@@ -316,6 +324,26 @@ body {
     opacity: 0.25; }
   body .reveal code {
     font-family: 'Droid Sans Mono', monospace; }
+  body .reveal blockquote {
+    background-color: none;
+    box-shadow: none;
+    font-family: "Montserrat", serif;
+    text-shadow: none;
+    line-height: 1.25;
+    font-weight: 400;
+    font-style: normal; }
+  body .reveal img,
+  body .reveal .nude {
+    background-color: transparent !important;
+    box-shadow: 0 0 0 transparent !important;
+    border-width: 0 !important; }
+  body .reveal .left {
+    float: left; }
+  body .reveal .right {
+    float: right; }
+  body .reveal .controls {
+    right: auto;
+    left: 0; }
 
 .title-slide body,
 .pink-slide body,
@@ -450,19 +478,3 @@ body {
   background-size: cover;
   background-position: center center;
   background-color: #f05a28; }
-
-.reveal img,
-.reveal .nude {
-  background-color: transparent !important;
-  box-shadow: 0 0 0 transparent !important;
-  border-width: 0 !important; }
-
-.reveal .left {
-  float: left; }
-
-.reveal .right {
-  float: right; }
-
-.reveal .controls {
-  right: auto;
-  left: 0; }

@@ -48,7 +48,8 @@ body {
 
 	text-transform: $headingTextTransform;
 	text-shadow: $headingTextShadow;
-
+  text-align: left;
+  width: 100%;
 	word-wrap: break-word;
 }
 
@@ -58,9 +59,14 @@ body {
 .reveal h4 {font-size: $heading4Size; }
 
 .reveal h1 {
+  text-align: center;
 	text-shadow: $heading1TextShadow;
 }
 
+.reveal .title-slide h1,
+.reveal .title-slide h2 {
+    text-align: center;
+}
 
 /*********************************************
  * OTHER
@@ -91,9 +97,10 @@ body {
 .reveal dl,
 .reveal ul {
 	display: inline-block;
-
-	text-align: left;
+  text-align: left;
+  width: 80%;
 	margin: 0 0 0 1em;
+	padding-left: 0;
 }
 
 .reveal ol {

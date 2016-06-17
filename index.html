@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>At Your Service: Module Development using Services in Drupal 8</title>
+		<title>Agent 008 | Decoupled Drupal 8 using PouchDB and React</title>
 
-		<meta name="description" content="Module Development using Services in Drupal 8">
+		<meta name="description" content="Agent 008 | Decoupled Drupal 8 using PouchDB and React">
 		<meta name="author" content="Erin Marchak">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -41,74 +41,160 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section data-state="title-slide">
-					<h1>HTML5 Slide Deck</h1>
-					<h2>Justin, that grin is suspicious</h2>
+					<h1>Agent 008</h1>
+					<h2>Decoupled Drupal 8 using PouchDB and React</h2>
 					<p>
-						<a href="http://twitter.com/emarchak">@emarchak</a> / <a href="http://twitter.com/myplanetHQ">@myplanetHQ</a>
+						@jlongbottom / <a href="http://twitter.com/emarchak">@emarchak</a> / <a href="http://twitter.com/myplanetHQ">@myplanetHQ</a>
 					</p>
 				</section>
-
+        
         <section data-state="title-slide">
           <a href="http://myplanet.com"><img src="img/mp_logo_wt.png" class="nude" alt="Myplanet"/></a>
           <p><a href="http://twitter.com/myplanetHQ">@myplanetHQ</a></p>
         </section>
+
+				<section data-state="teal-slide">
+  				
+          <p class="left" style="width:33%"><a href="http://myplanet.com"><img src="img/justin.png" class="nude" alt="Justin Longbottom"/></a><br/>
+            <a href="http://dgo.to/user/jlongbottom">@jlongbottom</a>
+            </p>
+                      <h1 class="left" style="width:10%">&</h1>
+          <p class="left"  style="width:33%"><a href="http://myplanet.com"><img src="img/erin.png" class="nude" alt="Erin Marchak"/></a><br/>
+          <a href="http://twitter.com/emarchak">@emarchak</a>
+          </p>
+				</section>
+		
+				<section data-background="img/bond.gif"></section>        
         
-        
-  		  <section>
-          <h2 class="left">List Slide</h2>
+        <section>
+          <h2>Why Decoupled Drupal 8?</h2>
+          <ul>
+            <li><a href="http://buytaert.net/the-future-of-decoupled-drupal">The future of decoupled Drupal</a> (Sep 24, 2015)</li>
+            <li><a href="http://buytaert.net/how-should-you-decouple-drupal">How should you decouple Drupal?</a> (Mar 22, 2016)</li>
+            <li><a href="https://events.drupal.org/neworleans2016/sessions/offline-capable-decoupled-drupal-8-reactjs-and-react-native">Offline-capable, decoupled Drupal 8 with React.js and React Native</a> (May 11, 2016)</li>
+            <li><a href="https://dev.acquia.com/blog/the-risks-and-rewards-of-fully-decoupling-drupal/16/06/2016/15686">The Risks and Rewards of Fully Decoupling Drupal</a> (Jun 16, 2016)</li>
+        </section>
+
+        <section>
+          <h2>What we are going to cover?</h2>
           <ol>
-            <li>Quickly scaffold code using Drupal Console</li>
-            <li class="fragment">Managing configuration in your module</li>
-            <li class="fragment">Create a custom service in Drupal 8 using Dependency Injection</li>
-            <li class="fragment">Import and manipulate content using Services available in core</li>
-            <li class="fragment">Create custom theme templates for Front End Developers</li>
-          </ol>
-        </section>
-
-        
-        <section>
-          <h2>Text Slide</h2>
-          <p>Mattis asperiores, rutrum? <a href="#">Aliquip luctus eros, molestias doloremque eos</a>, odit asperiores dictum sint massa impedit, consequuntur nesciunt vel, unde laboriosam dolor. Leo magni pretium etiam nec! Non quod ea est.</p>
+            <li>Business Cases & Technical Goals</li>
+            <li>Technical Toolkit</li>
+            <li>The Build Process</li>
         </section>
         
-        <section data-state="nologo-slide">
-          <h2>No logo slides?</h2>
-				</section> 
-  				
-        <section>
+				<!-- Business Cases -->
+				<section data-state="pink-slide">
   				<section>
-            <h2>Coloured slides?</h2>
-  				</section>          
-  				
-  				<section data-state="pink-slide">
-            <h2>A pink slide</h2>
-            <p>yep. <a href="#">yep.</a></p>
+    				 <h2>Goals</h2>
   				</section>
-  				
-  				<section data-state="teal-slide">
-            <h2>A teal slide</h2>
-            <p>yep. <a href="#">yep.</a></p>
+  				<section>
+    					<h3>Business</h3>
+    					<ul>
+      					<li>Technicians that maintain remote solar panel installations</li>
+      					<li>Newspage Managers that edit content while commuting</li>
+      					<li>Students with confined data limits</li>
+    					</ul>
   				</section>
-  				
-  				<section data-state="purple-slide">
-            <h2>A purple slide</h2>
-            <p>yep. <a href="#">yep.</a></p>
+  				<section>
+  					<h3>Technical</h3>
+    					<ul>
+      					<li>Offline capable</li>
+      					<li>View all the content, all the time!</li>
+      					<li>Drupal to JS, without middleware</li>
+    					</ul>
   				</section>
-  				
-  				<section data-state="orange-slide">
-            <h2>An orange slide</h2>
-            <p>yep. <a href="#">yep.</a></p>
+				</section>
+				
+				<!-- TOOLS -->
+				<section data-state="black-slide">
+  				<section>
+  				<h2>Tools</h2>
   				</section>
-  				
-  				<section data-state="black-slide">
-            <h2>A black slide</h2>
-            <p>yep. <a href="#">yep.</a></p>
+  				<section>
+  			  	<h3>Drupal 8</h3>
+  					<ul>
+    					<li>Composer for dependency management</li>
+    					<li>"Fast by default"</li>
+    					<li>Required modules do not exist for D7 <ol>
+      					<li><a href="http://dgo.to/relaxed">relaxed</a></li>
+      					<li><a href="http://dgo.to/multiversion">deploy</a></li>
+      					<li><a href="http://dgo.to/multiversion">multiversion</a></li>
+    					</ol></li>
+  					</ul>
   				</section>
-  				
-        </section>
+  				<section data-background-image="img/its2016_d8.png">
+    				<h1 style="padding-top:20%">Because it's 2016</h1>
+  				</section>
+  				<section>
+  			  	<h3>React</h3>
+  					<ul>
+    					<li>Designed for “building large applications with data that changes over time”</li>
+    					<li>Composable Declarative Components</li>
+    					<li>Proven to work well with Drupal 8</li>
+  					</ul>
+  				</section>
+  				<section>
+  			  	<h3>pouchDB/couchDB</h3>
+  					<ul>
+    					<li><a href="http://offlinefirst.org/">Offline-first development</a> ≃ mobile-first development</li>
+    					<li>All content is available, all the time. No cold caches!</li>
+    					<li>Content conflicts are elegantly handled</li>
+    					<li>Very user friendly, very browser friendly, very friendly. 😊</li> 
+  					</ul>   
+    				</section>
+    				<section>
+      				<h3>pouchDB Setup</h3>
+		          <pre><code data-trim data-noescape>var localDB  = new PouchDB('pouchDBInstance');
+var remoteDB = new PouchDB('http://couch/db/instance');
 
-        <section data-state="black-slide">
-          <h2>Thank you</h2>
+localDB.sync(remoteDB).on('complete', function () {
+  // sync success :)
+}).on('error', function (err) {
+  // 'sync error :(
+});
+		          </code></pre>
+    				</section>
+				</section>
+				
+				<section data-background="img/invincible.gif"></section>  
+				
+				<!-- The build process -->
+				<section>
+  				<section>
+  					<h2>The Build Process</h2>
+  				</section>
+        	<section>
+          	<h3>Build Drupal & Friends</h3>
+        	</section>
+        	<section>
+          	<h3>Configure Relaxed</h3>
+        	</section>
+        	<section>
+          	<h3>Create React App</h3>
+        	</section>
+				</section>
+      
+				<section>
+					<h2>Afterthoughts</h2>
+					<ul>
+  					<li>How secure is Relaxed?</li>
+  					<li>Is Relaxed preferable over custom controllers?</li>
+  					<li>How feasible is pouchDB in production?</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Looking Forward</h2>
+					<ul>
+  					<li>Let the CMS do what it does best</li>
+  					<li>Build native with CouchDB for <a href="https://pouchdb.com/faq.html#native_support">Android and iOS</a></li>
+  					<li>Unleash your front-end devs!</li>
+					</ul>
+				</section>
+				    
+        <section data-state="title-slide">
+          <h1>Thank you</h1>
           <p><a href="http://twitter.com/myplanetHQ">@myplanetHQ</a></p>
 				</section>
 				

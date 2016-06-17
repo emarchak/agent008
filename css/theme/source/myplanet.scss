@@ -11,7 +11,7 @@
 
 
 // Include theme-specific fonts
-@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic|Droid+Sans+Mono);
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Montserrat:400,700|Droid+Sans+Mono); 
 
 // Brand colors --------------------------------
 $mp_pink:   #ea3d67;
@@ -35,7 +35,7 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
 // Theme template ------------------------------
 @import "../template/theme";
 
-// ---------------------------------------------
+// Myplanet theme ------------------------------
 body {
   background-image: url('source/img/mp_logo_og.png');
   background-size: 100px;
@@ -44,7 +44,6 @@ body {
   .reveal {
     h1, h2, h3, h4, h5, h6 {
       font-family: $headingFont;
-      font-weight:bold;
       text-shadow: none;
       line-height: 1.25;
       font-weight: 400; 
@@ -69,11 +68,42 @@ body {
     code {
       font-family: 'Droid Sans Mono', monospace;
     }
+    
+    blockquote {
+      background-color: none;
+      box-shadow: none;
+      font-family: $headingFont;
+      text-shadow: none;
+      line-height: 1.25;
+      font-weight: 400; 
+      font-style: normal;
+    }
+    
+    img,
+    .nude {
+      background-color: transparent !important;
+      box-shadow: 0 0 0 transparent !important;
+      border-width: 0!important;
+    }
+    
+    .left {
+      float: left;
+    }
+    
+    .right {
+      float: right;
+    }
+    
+    // flip controls to the left.
+    .controls {
+      right: auto;
+      left: 0;
+    }
   }
 }
 
 
-// slide color themes
+// Colored slides ------------------------
 .title-slide body,
 .pink-slide body,
 .teal-slide body,
@@ -145,28 +175,4 @@ body {
   background-size: cover;
   background-position: center center;
   background-color: $mp_orange;
-}
-
-// helper classes
-.reveal {
-  img,
-  .nude {
-    background-color: transparent !important;
-    box-shadow: 0 0 0 transparent !important;
-    border-width: 0!important;
-  }
-  .left {
-    float: left;
-  }
-  .right {
-    float: right;
-  }
-}
-// Reveal overrides
-.reveal {
-  // flip controls to the left.
-  .controls {
-    right: auto;
-    left: 0;
-  } 
 }
