@@ -47,6 +47,8 @@ body {
   letter-spacing: normal;
   text-transform: none;
   text-shadow: none;
+  text-align: left;
+  width: 100%;
   word-wrap: break-word; }
 
 .reveal h1 {
@@ -62,7 +64,12 @@ body {
   font-size: 1em; }
 
 .reveal h1 {
+  text-align: center;
   text-shadow: none; }
+
+.reveal .title-slide h1,
+.reveal .title-slide h2 {
+  text-align: center; }
 
 /*********************************************
  * OTHER
